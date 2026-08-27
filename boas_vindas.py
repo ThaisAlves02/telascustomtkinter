@@ -126,7 +126,7 @@ nome1 = ctk.CTkLabel(
     text_color= cor_texto,
 )
 
-nome1.place(x = 57, y = 130)
+nome1.place(relx = 0.35, rely = 30)
 
 
 nome2 = ctk.CTkLabel(
