@@ -81,12 +81,12 @@ titulo_direito1.place(x=105, y=80)
 titulo_direito2 = ctk.CTkLabel(
     frame_direito,
     text="Preencha os campos abaixo para começar",
-    font=ctk.CTkFont(size=16),
+    font=ctk.CTkFont(size=15),
     fg_color="white",
     text_color="gray"
 )
 
-titulo_direito2.place(x=108, y=138)
+titulo_direito2.place(x=108, y=130)
 
 
 # CAMPOS DE ENTRADA:
