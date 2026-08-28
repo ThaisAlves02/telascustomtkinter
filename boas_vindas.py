@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from PIL import Image
+import os
 
 #----------------------------------------------------------
 # CONFIGURAÇÕES GERAIS / CORES
@@ -14,6 +15,20 @@ cor_texto = '#e6e6e6'
 cor_texto_sec = "#9c98b0"
 
 #----------------------------------------------------------
+# CONFIGURAÇÕES DE IMAGEM
+#----------------------------------------------------------
+base_dir = os.path.dirname(os.path.abspath(__file__))
+assent_dir = os.path.join(base_dir,'assents')
+
+#----------------------------------------------------------
+# ABRIR IMAGEM
+#----------------------------------------------------------
+imagem_icone = ctk.CTkImage(
+    Image.open(os.path.join(assent_dir,"icon_usuario.png")),
+    size = (90,90)
+)
+
+#----------------------------------------------------------
 # JANELA PRINCIPAL
 #----------------------------------------------------------
 
@@ -22,7 +37,6 @@ janela.title('Seleção de Usuário')
 janela.geometry('960x600')
 janela.configure(fg_color = cor_fundo)
 janela.resizable(False, False)
-
 
 #----------------------------------------------------------
 # TITULO
@@ -67,6 +81,8 @@ card1 = ctk.CTkButton(
 )
 card1.grid(row= 0, column = 0, padx = 12, pady= 12)
 
+imagem01 = ctk.CTkLabel(card1, text="", image=imagem_icone)
+imagem01.place(relx=0.225, rely=0.083)
 
 # -- CARD 2: ANDRÉ --
 card2 = ctk.CTkButton(
@@ -80,6 +96,8 @@ card2 = ctk.CTkButton(
 )
 card2.grid(row= 0, column = 1, padx = 12, pady= 12)
 
+imagem02 = ctk.CTkLabel(card2, text="", image=imagem_icone)
+imagem02.place(relx=0.225, rely=0.083)
 
 # -- CARD 3: OLAVO --
 card3 = ctk.CTkButton(
@@ -93,6 +111,8 @@ card3 = ctk.CTkButton(
 )
 card3.grid(row= 0, column = 2, padx = 12, pady= 12)
 
+imagem03 = ctk.CTkLabel(card3, text="", image=imagem_icone)
+imagem03.place(relx=0.225, rely=0.083)
 
 # -- CARD 4 MARIA:  --
 card4 = ctk.CTkButton(
@@ -106,6 +126,8 @@ card4 = ctk.CTkButton(
 )
 card4.grid(row= 0, column = 3, padx = 12, pady= 12)
 
+imagem04 = ctk.CTkLabel(card4, text="", image=imagem_icone)
+imagem04.place(relx=0.225, rely=0.083)
 
 # -- CARD 5 BRUNA:  --
 card5 = ctk.CTkButton(
@@ -119,14 +141,18 @@ card5 = ctk.CTkButton(
 )
 card5.grid(row= 0, column = 4, padx = 12, pady= 12)
 
+imagem05 = ctk.CTkLabel(card5, text="", image=imagem_icone)
+imagem05.place(relx=0.225, rely=0.083)
+
 nome1 = ctk.CTkLabel(
     card1,
     text = 'Aluno',
     font = ctk.CTkFont(size = 14, weight= 'bold'),
     text_color= cor_texto,
+  
 )
 
-nome1.place(relx = 0.35, rely = 30)
+nome1.place(relx=0.37, rely=0.82)
 
 
 nome2 = ctk.CTkLabel(
@@ -136,7 +162,7 @@ nome2 = ctk.CTkLabel(
     text_color= cor_texto,
 )
 
-nome2.place(x = 57, y = 130)
+nome2.place(relx=0.37, rely=0.82)
 
 nome3 = ctk.CTkLabel(
     card3,
@@ -145,7 +171,7 @@ nome3 = ctk.CTkLabel(
     text_color= cor_texto,
 )
 
-nome3.place(x = 57, y = 130)
+nome3.place(relx=0.37, rely=0.82)
 
 nome4 = ctk.CTkLabel(
     card4,
@@ -154,7 +180,7 @@ nome4 = ctk.CTkLabel(
     text_color= cor_texto,
 )
 
-nome4.place(x = 57, y = 130)
+nome4.place(relx=0.37, rely=0.82)
 
 nome5 = ctk.CTkLabel(
     card5,
@@ -163,7 +189,7 @@ nome5 = ctk.CTkLabel(
     text_color= cor_texto,
 )
 
-nome5.place(x = 57, y = 130)
+nome5.place(relx=0.37, rely=0.82)
 
 
 
