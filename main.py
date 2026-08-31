@@ -37,7 +37,7 @@ cor_fundo = "#1e1b2e"
 cor_card = "#2c2942"
 cor_input ="#4a4560"
 cor_verde = "#3ddc84"
-
+cor_texto_sec = "#e6e6e6"
 
 app = ctk.CTk()
 app.title('Login')
@@ -59,7 +59,7 @@ imagem_astronauta = ctk.CTkImage(
 #---------------------------------------------------------
 
 frame_esquerdo = ctk.CTkFrame(app, fg_color='transparent')
-frame_esquerdo.place(x=50,y=90)
+frame_esquerdo.grid(row= 0,column= 0)
 
 titulo1 = ctk.CTkLabel(
     frame_esquerdo,
@@ -68,40 +68,40 @@ titulo1 = ctk.CTkLabel(
     text_color=cor_verde
 )
 
-titulo1.pack(anchor='w') #alinha o obj a esquerda
+titulo1.pack(anchor='w', padx = 40, pady = (40, 0)) #alinha o obj a esquerda
 
 titulo2 = ctk.CTkLabel(
     frame_esquerdo,
     text='E entre para o nosso time',
     font=ctk.CTkFont(size=30,weight='bold'),
-    text_color=cor_verde
+    text_color= cor_texto_sec
 )
 
-titulo2.pack(anchor='w')
+titulo2.pack(anchor='w', padx = 40)
 
 #---------------------------------------------------------
 #LABEL PARA COLOCAR A IMAGEM
 #---------------------------------------------------------
-label_imagem = ctk.CTkLabel(app, image = imagem_astronauta, text='')
-label_imagem.place(x= 40, y= 200)
+label_imagem = ctk.CTkLabel(frame_esquerdo, image = imagem_astronauta, text='')
+label_imagem.pack(padx= 50, pady= 80)
 
 #---------------------------------------------------------
 #LADO DIREITO - CARD LOGIN
 #---------------------------------------------------------
 card = ctk.CTkFrame(app, fg_color= cor_card, corner_radius= 20, width= 340, height= 360)
-card.place(x= 680, y= 165)
+card.grid(row= 0 , column= 1, padx = (160, 0))
 card.propagate(False)
 
 label_login = ctk.CTkLabel(
     card, 
     text= 'LOGIN',
     font = ctk.CTkFont(size= 22, weight= 'bold'),
-    text_color= cor_verde                       
+    text_color= cor_texto_sec                      
 )
 label_login.pack(pady = (25, 15))
 
-label_usuario = ctk.CTkLabel(card, text='Usuário', anchor='w')
-label_usuario.pack(fill = 'x', padx = 30)
+label_usuario = ctk.CTkLabel(card, text='Usuário', anchor='w', padx = 30 )
+label_usuario.pack(fill = 'x')
 
 entry_usuario = ctk.CTkEntry(
     card,
@@ -135,7 +135,7 @@ entry_senha.pack(fill = 'x', padx = 30, pady = (5,15))
 botao_login = ctk.CTkButton(
     card, 
     text='LOGIN',
-    fg_color= '#2fc46f',
+    fg_color= cor_verde,
     text_color= '#1e1b2e',
     font= ctk.CTkFont(size = 14, weight='bold'),
     height= 42,
@@ -143,5 +143,31 @@ botao_login = ctk.CTkButton(
 )
 
 botao_login.pack(fill = 'x', padx = 30)
+
+botao_esqueci_senha = ctk.CTkButton(
+    card,
+    text= 'Esqueci minha senha',
+    fg_color="transparent",
+    hover_color=cor_card,    
+    text_color=cor_texto_sec,
+    cursor="hand2"
+)
+
+botao_esqueci_senha.pack(padx = 30)
+
+
+botao_cadastrar = ctk.CTkButton(
+    card,
+    text= 'Não tem conta? Cadastre-se',
+    fg_color="transparent",
+    hover_color=cor_card,  
+    text_color=cor_texto_sec,
+    cursor="hand2"
+)
+
+botao_cadastrar.pack(padx = 30)
+
+
+
 
 app.mainloop()
