@@ -4,7 +4,7 @@ import os
 
 app = ctk.CTk()
 app.title('Login')
-app.geometry('1100x650')
+app.geometry('1180x650')
 
 card_direito = "#E9E9E9"
 
@@ -18,7 +18,7 @@ assent_dir = os.path.join(base_dir,'assents')
 
 imagem_foguete = ctk.CTkImage(
     dark_image = Image.open(os.path.join(assent_dir,"foguete.png")),
-    size = (220,220)
+    size = (240,240)
 )
 
 #Cria uma label exclusiva para exibir a imagem
