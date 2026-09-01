@@ -144,28 +144,37 @@ botao_login = ctk.CTkButton(
 
 botao_login.pack(fill = 'x', padx = 30)
 
+#---------------------------------------------------------
+# FRAME PARA OS BOTÕES INFERIORES (Lado a lado)
+#---------------------------------------------------------
+
+frame_botoes_inferiores = ctk.CTkFrame(card, fg_color="transparent")
+frame_botoes_inferiores.pack(fill='x', padx= 18, pady=(15, 20))
+
 botao_esqueci_senha = ctk.CTkButton(
-    card,
+    frame_botoes_inferiores,
     text= 'Esqueci minha senha',
+    font= ctk.CTkFont(size = 11, underline=True),
     fg_color="transparent",
     hover_color=cor_card,    
     text_color=cor_texto_sec,
     cursor="hand2"
 )
 
-botao_esqueci_senha.pack(padx = 30)
+botao_esqueci_senha.pack(side='left')
 
 
 botao_cadastrar = ctk.CTkButton(
-    card,
+    frame_botoes_inferiores,
     text= 'Não tem conta? Cadastre-se',
+    font= ctk.CTkFont(size = 11, underline=True),
     fg_color="transparent",
     hover_color=cor_card,  
     text_color=cor_texto_sec,
     cursor="hand2"
 )
 
-botao_cadastrar.pack(padx = 30)
+botao_cadastrar.pack(side='right') 
 
 
 
