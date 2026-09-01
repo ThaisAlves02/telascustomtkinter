@@ -33,7 +33,7 @@ titulo1 = ctk.CTkLabel(
     text_color= '#FFFFFF'
 )
 
-titulo1.pack(anchor='w', padx = 35, pady = (40,0))
+titulo1.place(x = 35, y = 25)
 
 label_texto1 = ctk.CTkLabel(
     verde,
@@ -51,14 +51,17 @@ label_texto2 = ctk.CTkLabel(
 label_texto2.place(x = 35, y = 85)
 
 
-label_texto3 = ctk.CTkLabel(
+botao_entrar_conta = ctk.CTkButton(
     verde,
-    font=ctk.CTkFont(size=12,weight='bold'),
+    font=ctk.CTkFont(size=12,weight='bold', underline= True),
     text= 'já tem conta? Entrar',
-    text_color= '#FFFFFF'
+    fg_color="transparent",
+    text_color= '#FFFFFF',
+    hover_color= '#3cB878',
+    cursor = 'hand2'
 )
 
-label_texto3.place(x = 35, y = 560)
+botao_entrar_conta.place(x = 35, y = 560)
 
 # LADO DIREITO - CARD CADASTRO
 
@@ -176,8 +179,9 @@ label_senha.place(x=110, y=435)
 
 entry_senha = ctk.CTkEntry(
     frame_direito,
-    placeholder_text="* * * * * * *",
-    placeholder_text_color="black",
+    placeholder_text= 'Digite sua senha',
+    show = '*',
+    placeholder_text_color="gray",
     border_width=2,
     width=280,
     height=42,
@@ -202,8 +206,9 @@ label_confirmar_senha.place(x=427, y=437)
 
 entry_confirmar_senha = ctk.CTkEntry(
     frame_direito,
-    placeholder_text="* * * * * * *",
-    placeholder_text_color="black",
+    placeholder_text= 'Confirme sua senha',
+    show = '*',
+    placeholder_text_color="gray",
     border_width=2,
     width=280,
     height=42,
