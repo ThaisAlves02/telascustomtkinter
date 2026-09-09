@@ -77,20 +77,26 @@ def adicionar_contato():
 
     contatos = carregar_contatos()
 
+    for contato in contatos:
+        if email == contato["email"]:
+             messagebox.showerror("Erro", "Email já existente")
+             return
+        
     novo_id = max([c["id"] for c in contatos], default=0) + 1
     novo_contato = {
-        "id": novo_id,
-        "nome": nome,
-        "telefone": telefone,
-        "email": email,
-        "data_cadastro": datetime.now().strftime("%d/%m/%Y %H:%M"),
+            "id": novo_id,
+            "nome": nome,
+            "telefone": telefone,
+            "email": email,
+            "data_cadastro": datetime.now().strftime("%d/%m/%Y %H:%M"),
     }
-
+               
     contatos.append(novo_contato)
     salvar_contatos(contatos)
     listar_contatos()
     limpar_campos()
     messagebox.showinfo("Sucesso", "Contato adicionado com sucesso!")
+                
 
 
 def listar_contatos():
