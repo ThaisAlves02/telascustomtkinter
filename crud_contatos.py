@@ -113,7 +113,25 @@ def listar_contatos():
             values=(c["nome"], c["telefone"], c["email"], c["data_cadastro"])
         )
 
+#-------------------------------------------------------------------
+#FUNCIONALIDADE 1 - PESQUISAR CONTATOS
+#-------------------------------------------------------------------
+def buscar_contatos():
+    # Limpa a treeview
+        for item in tree.get_children():
+            tree.delete(item)
 
+        pesquisa = entry_buscar.get().strip()
+
+        contatos = carregar_contatos()
+        for contato in contatos:
+            if pesquisa in contato["nome"] or pesquisa in contato["telefone"] or pesquisa in contato["email"] or pesquisa in contato["data_cadastro"]:
+                tree.insert(
+                    "", "end", iid=str(contato["id"]),
+                    values=(contato["nome"], contato["telefone"], contato["email"], contato["data_cadastro"])
+                )
+
+            
 def selecionar_contato(event):
     global contato_selecionado_id
 
@@ -202,7 +220,7 @@ def limpar_campos():
 
 janela = ctk.CTk()
 janela.title("Cadastro de Contatos")
-janela.geometry("650x500")
+janela.geometry("900x500")
 janela.resizable(False, False)
 
 # --- Formulário ---
@@ -221,16 +239,27 @@ ctk.CTkLabel(frame_form, text="Email:").grid(row=2, column=0, padx=10, pady=8, s
 entry_email = ctk.CTkEntry(frame_form, width=250, placeholder_text="Ex: maria@email.com")
 entry_email.grid(row=2, column=1, padx=10, pady=8)
 
+ctk.CTkLabel(frame_form, text="Buscar:").grid(row=0, column=1, padx=(390,50), pady=10, sticky="w")
+entry_buscar = ctk.CTkEntry(frame_form, width=250, placeholder_text="Pesquisar...")
+entry_buscar.grid(row=0, column=2, padx=10, pady=10)
+
+
 # --- Botões ---em
 frame_botoes = ctk.CTkFrame(janela)
 frame_botoes.pack(padx=20, pady=5, fill="x")
 
 ctk.CTkButton(frame_botoes, text="Adicionar", command=adicionar_contato,
               fg_color="#2e7d32", hover_color="#1b5e20").pack(side="left", padx=5, pady=10)
+
+ctk.CTkButton(frame_botoes, text="Buscar", command=buscar_contatos,
+              fg_color="#1565c0", hover_color="#0d47a1").pack(side="left", padx=5, pady=10)
+
 ctk.CTkButton(frame_botoes, text="Atualizar", command=atualizar_contato,
               fg_color="#f9a825", hover_color="#f57f17").pack(side="left", padx=5, pady=10)
+
 ctk.CTkButton(frame_botoes, text="Excluir", command=excluir_contato,
               fg_color="#c62828", hover_color="#8e0000").pack(side="left", padx=5, pady=10)
+
 ctk.CTkButton(frame_botoes, text="Limpar Campos", command=limpar_campos,
               fg_color="gray40", hover_color="gray30").pack(side="left", padx=5, pady=10)
 
