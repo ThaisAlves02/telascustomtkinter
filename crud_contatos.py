@@ -76,7 +76,9 @@ def adicionar_contato():
         return
 
     contatos = carregar_contatos()
-
+#-------------------------------------------------------------------
+#FUNCIONALIDADE 5 - E-MAIL DUPLICADO
+#-------------------------------------------------------------------
     for contato in contatos:
         if email == contato["email"]:
              messagebox.showerror("Erro", "Email já existente")
