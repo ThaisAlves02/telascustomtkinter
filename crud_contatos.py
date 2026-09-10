@@ -283,6 +283,10 @@ tree.column("data_cadastro", width=140)
 tree.pack(fill="both", expand=True, padx=5, pady=5)
 tree.bind("<<TreeviewSelect>>", selecionar_contato)
 
+label_contador = ctk.CTkLabel(janela,text='Total:')
+label_contador.pack()
+
+
 # Carrega a lista assim que a tela abre
 listar_contatos()
 
